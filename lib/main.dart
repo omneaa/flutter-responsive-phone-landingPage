@@ -1,42 +1,68 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_literals_to_create_immutables
 
-void main() => runApp(MyApp());
+import 'package:flutter/material.dart';
+import 'package:landingpage/cover.dart';
+import 'package:landingpage/ourContacts.dart';
+import 'package:landingpage/ourPartners.dart';
+import 'package:landingpage/ourServices.dart';
+import 'package:landingpage/register.dart';
+import 'package:landingpage/whoWeAre.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+  const MyHomePage();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
+      // appBar: AppBar(),
+      // drawer: Drawer(
+      //   child: SingleChildScrollView(
+      //     child: Container(
+      //       color: Colors.black,
+      //     ),
+      //   ),
+      // ),
+      body: ListView(
+        children: [
+          Cover(),
+          SizedBox(
+            height: 49,
+          ),
+          WhoWeAre(),
+          SizedBox(
+            height: 49,
+          ),
+          ourServices(),
+          // OurServices(),
+          // ourServices(),
+          SizedBox(
+            height: 49,
+          ),
+
+          Register(),
+          SizedBox(
+            height: 49,
+          ),
+          OurParteners(),
+          SizedBox(
+            height: 49,
+          ),
+          Contacts()
+        ],
       ),
     );
   }
